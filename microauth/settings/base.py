@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'oauth2_provider',  # django-oauth-toolkit
 ]
 
 MIDDLEWARE_CLASSES = [
