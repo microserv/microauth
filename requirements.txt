@@ -1,2 +1,7 @@
 Django>=1.9,<1.10
 
+# 3rd party django apps
+django-oauth-toolkit==0.10.0
+
+# 3rd party [other] apps
+oauthlib==1.0.3
