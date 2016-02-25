@@ -217,7 +217,7 @@ PIPELINE = {
             'source_filenames': (
                 'css/style.css',
             ),
-            'output_filename': 'css/microserv.css',
+            'output_filename': 'css/microauth_css.css',
         },
     },
     'JAVASCRIPT': {
@@ -225,7 +225,7 @@ PIPELINE = {
             'source_filenames': (
                 'js/app.browserify.js',
             ),
-            'output_filename': 'js/microserv_js.js',
+            'output_filename': 'js/microauth_js.js',
         },
     },
 }
