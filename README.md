@@ -13,7 +13,8 @@ Let's make sure we're up to date with upstream git repository, install any new r
 1. [clone|fetch|pull|merge] this repository
 2. Install project dependencies from requirements.txt
 3. `python manage.py migrate`
-4. `python manage.py runserver`
+4. `cd apps/authentication/static/js/`, `npm install .` - This installs node modules required for transpiling ReactJS code.
+10. `python manage.py runserver` (Yes, it's step #10 - that makes it easy to add steps in before it without renaming the step number)
 
 ## How to use this application
 

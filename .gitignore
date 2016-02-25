@@ -55,6 +55,9 @@ local.py
 local_settings.py
 db.sqlite3
 
+# Collected static
+static/
+
 # Flask instance folder
 instance/
 
@@ -70,6 +73,12 @@ target/
 # pyenv
 .python-version
 env
+
+# Node / npm
+node_modules/
+
+# IDEA
+.idea/
 
 # OS X
 .DS_Store
