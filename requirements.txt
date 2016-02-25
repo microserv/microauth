@@ -1,11 +1,13 @@
 Django>=1.9,<1.10
 
 # 3rd party django apps
+django-cors-headers==1.1.0
 django-oauth-toolkit==0.10.0
 django-pipeline==1.6.6
 # Temporary pipeline browserify
 # django-pipeline-browserify==0.2.0
 git+https://github.com/lebeier/django-pipeline-browserify@545f0b140efb8e60bbe3c647e890fbbcc6d31b57
+djangorestframework==3.3.2
 
 # 3rd party [other] apps
 oauthlib==1.0.3
