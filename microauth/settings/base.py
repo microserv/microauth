@@ -211,6 +211,7 @@ PIPELINE = {
     'COMPILERS': [
         'pipeline_browserify.compiler.BrowserifyCompiler',
     ],
+    'BROWSERIFY_ARGUMENTS': '-t [ babelify --presets [ react ] ]',
     'STYLESHEETS': {
         'microauth_css': {
             'source_filenames': (
@@ -222,15 +223,9 @@ PIPELINE = {
     'JAVASCRIPT': {
         'microauth_js': {
             'source_filenames': (
-                'js/bower_components/jquery/dist/jquery.min.js',
-                'js/bower_components/react/JSXTransformer.js',
-                'js/bower_components/react/react-with-addons.js',
                 'js/app.browserify.js',
             ),
             'output_filename': 'js/microserv_js.js',
         },
     },
 }
-
-if DEBUG:
-    PIPELINE['BROWSERIFY_ARGUMENTS'] = '-t [ babelify --presets [ react ] ]'
