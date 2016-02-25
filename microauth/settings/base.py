@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party apps
     'corsheaders',
     'oauth2_provider',  # django-oauth-toolkit
+    'pipeline',
     'rest_framework',
+    # Our own apps
+    'apps.authentication',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -60,7 +64,9 @@ ROOT_URLCONF = 'microauth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,6 +130,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = ()
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 # Logging
 
@@ -188,3 +200,37 @@ LOGGING = {
 
 # corsheaders
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Pipeline
+STATICFILES_FINDERS.append('pipeline.finders.PipelineFinder')
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE = {
+    'CSS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
+    'JS_COMPRESSOR': 'pipeline.compressors.uglifyjs.UglifyJSCompressor',
+    'COMPILERS': [
+        'pipeline_browserify.compiler.BrowserifyCompiler',
+    ],
+    'STYLESHEETS': {
+        'microauth_css': {
+            'source_filenames': (
+                'css/style.css',
+            ),
+            'output_filename': 'css/microserv.css',
+        },
+    },
+    'JAVASCRIPT': {
+        'microauth_js': {
+            'source_filenames': (
+                'js/bower_components/jquery/dist/jquery.min.js',
+                'js/bower_components/react/JSXTransformer.js',
+                'js/bower_components/react/react-with-addons.js',
+                'js/app.browserify.js',
+            ),
+            'output_filename': 'js/microserv_js.js',
+        },
+    },
+}
+
+if DEBUG:
+    PIPELINE['BROWSERIFY_ARGUMENTS'] = '-t [ babelify --presets [ react ] ]'
