@@ -22,4 +22,5 @@ urlpatterns = [
     # django-oauth-toolkit
     url(r'^oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^', include('apps.authentication.urls', namespace='microauth_authentication')),
+    url(r'^api/', include('apps.api.urls', namespace='microauth_api')),
 ]
