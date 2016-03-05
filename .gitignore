@@ -56,7 +56,7 @@ local_settings.py
 db.sqlite3
 
 # Collected static
-static/
+.static/
 
 # Flask instance folder
 instance/
