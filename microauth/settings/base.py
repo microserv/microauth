@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'pipeline',
     'rest_framework',
     # Our own apps
+    'apps.api',
     'apps.authentication',
 ]
 
