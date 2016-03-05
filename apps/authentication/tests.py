@@ -1,10 +1,9 @@
+from unittest import skip
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.utils import override_settings
-
-from unittest import skip
-
 from rest_framework.test import APITestCase
 
 
