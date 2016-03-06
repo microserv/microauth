@@ -41,7 +41,7 @@ var Register = React.createClass({
       url: '/api/users/',
       method: 'POST',
       data: {
-        username: state.username,
+        username: state.email,
         email: state.email,
         password: state.password
       },
