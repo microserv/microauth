@@ -56,7 +56,7 @@ var RegisterForm = React.createClass({
             <label>Repeat password</label>
           </div>
           <button type="button" className="button buttonBlue" onClick={this.props.handleSubmit}>
-            Log in
+            Sign up
             <div className="ripples buttonRipples"><span className="ripplesCircle" /></div>
           </button>
         </form>
