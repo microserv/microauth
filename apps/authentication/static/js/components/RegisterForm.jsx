@@ -4,7 +4,7 @@ var React = require('react');
 var Input = require('./Input.jsx');
 
 var RegisterForm = React.createClass({
-  componentDidMount: function() {
+  renderButtonRipple: function() {
     var $ripples = $('.ripples');
 
     $ripples.on('click.Ripples', function(e) {
@@ -30,9 +30,13 @@ var RegisterForm = React.createClass({
     });
   },
 
+  componentDidMount: function() {
+    this.renderButtonRipple();
+  },
+
   render: function() {
     return (
-      <form>
+      <form autoComplete="off">
         <div className="group">
           <Input type="email" name="email"
                  value={this.props.email} onChange={this.props.handleEmailChange} />

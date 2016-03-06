@@ -23,7 +23,7 @@ var LoginForm = React.createClass({
     this.setState({ password: event.target.value });
   },
 
-  componentDidMount: function() {
+  renderButtonRipple: function() {
     var $ripples = $('.ripples');
 
     $ripples.on('click.Ripples', function(e) {
@@ -47,7 +47,10 @@ var LoginForm = React.createClass({
     $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
       $(this).removeClass('is-active');
     });
+  },
 
+  componentDidMount: function() {
+    this.renderButtonRipple();
   },
 
   render: function () {
