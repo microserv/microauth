@@ -7,9 +7,10 @@ var Register = require('./Register.jsx');
 var App = React.createClass({
   getInitialState: function() {
     return {
+      debug: false,
       hideLogin: false,
       hideRegistration: true,
-      hideAuth: true,
+      hideAuth: false,
       auth: {
         expires_in: '',
         refresh_token: '',
@@ -33,6 +34,10 @@ var App = React.createClass({
 
   toggleShowAuth: function() {
     this.setState({ hideAuth: !this.state.hideAuth });
+  },
+
+  toggleDebug: function() {
+    this.setState({ debug: !this.state.debug });
   },
 
   updateAuthentication: function(authentication) {
@@ -94,28 +99,37 @@ var App = React.createClass({
           <Login prepareAjax={this.prepareAjax}
             clientId={this.state.oauth2.id}
             clientSecret={this.state.oauth2.secret}
-            updateAuthentication={this.updateAuthentication} />
+            updateAuthentication={this.updateAuthentication}
+            debug={this.state.debug} />
         </div>
         <div className="" hidden={this.state.hideRegistration}>
-          <Register prepareAjax={this.prepareAjax} />
+          <Register prepareAjax={this.prepareAjax}
+            debug={this.state.debug} />
         </div>
         <div className="clearfix"></div>
-        <h3 onClick={this.toggleShowAuth}>
-          OAuth2 information
-        </h3>
-        <div>
-          <pre hidden={this.state.hideAuth}>
-            {JSON.stringify(this.state.auth, null, 2)}
-          </pre>
+        <div hidden={!this.state.debug}>
+          <h3 onClick={this.toggleShowAuth}>
+            OAuth2 information
+          </h3>
+          <div>
+            <pre hidden={this.state.hideAuth}>
+              {JSON.stringify(this.state.auth, null, 2)}
+            </pre>
+          </div>
         </div>
         <hgroup>
           <h3 onClick={this.switchView} hidden={this.state.hideLogin}>
-            Need an account? Click here to sign up.
+            <span className="clicky">Need an account? Click here to sign up.</span>
           </h3>
           <h3 onClick={this.switchView} hidden={this.state.hideRegistration}>
-            Already have an account? Click here to log in.
+            <span className="clicky">Already have an account? Click here to log in.</span>
           </h3>
         </hgroup>
+        <div>
+          <p onClick={this.toggleDebug} className="clicky" style={{ textAlign: 'center' }}>
+            Click here to {this.state.debug ? 'disable' : 'enable'} debug
+          </p>
+        </div>
       </div>
     )
   }
