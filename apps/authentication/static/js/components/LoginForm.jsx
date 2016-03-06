@@ -11,10 +11,6 @@ var LoginForm = React.createClass({
     };
   },
 
-  isActive: function() {
-    return (this.state.selected)
-  },
-
   handleEmailChange: function(event) {
     this.setState({ email: event.target.value });
   },
