@@ -32,35 +32,33 @@ var RegisterForm = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <form>
-          <div className="group">
-            <Input type="email" name="email"
-                   value={this.props.email} onChange={this.props.handleEmailChange} />
-            <span className="highlight" />
-            <span className="bar" />
-            <label>Email</label>
-          </div>
-          <div className="group">
-            <Input type="password" name="password"
-                   value={this.props.password} onChange={this.props.handlePasswordChange} />
-            <span className="highlight" />
-            <span className="bar" />
-            <label>Password</label>
-          </div>
-          <div className="group">
-            <Input type="password" name="passwordRepeat"
-                   value={this.props.passwordRepeat} onChange={this.props.handlePasswordRepeatChange} />
-            <span className="highlight" />
-            <span className="bar" />
-            <label>Repeat password</label>
-          </div>
-          <button type="button" className="button buttonBlue" onClick={this.props.handleSubmit}>
-            Sign up
-            <div className="ripples buttonRipples"><span className="ripplesCircle" /></div>
-          </button>
-        </form>
-      </div>
+      <form>
+        <div className="group">
+          <Input type="email" name="email"
+                 value={this.props.email} onChange={this.props.handleEmailChange} />
+          <span className="highlight" />
+          <span className="bar" />
+          <label>Email</label>
+        </div>
+        <div className="group">
+          <Input type="password" name="password"
+                 value={this.props.password} onChange={this.props.handlePasswordChange} />
+          <span className="highlight" />
+          <span className="bar" />
+          <label>Password</label>
+        </div>
+        <div className="group">
+          <Input type="password" name="passwordRepeat"
+                 value={this.props.passwordRepeat} onChange={this.props.handlePasswordRepeatChange} />
+          <span className="highlight" />
+          <span className="bar" />
+          <label>Repeat password</label>
+        </div>
+        <button type="button" className="button buttonBlue" onClick={this.props.handleSubmit}>
+          Sign up
+          <div className="ripples buttonRipples"><span className="ripplesCircle" /></div>
+        </button>
+      </form>
     );
   }
 });
