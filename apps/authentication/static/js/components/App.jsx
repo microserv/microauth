@@ -8,10 +8,16 @@ var App = React.createClass({
     return (
       <div>
         <div className="split-page left">
-          <Login />
+          <hgroup>
+            <h1>Sign in</h1>
+            <Login />
+          </hgroup>
         </div>
         <div className="split-page right">
-          <Register />
+          <hgroup>
+            <h1>Register</h1>
+            <Register />
+          </hgroup>
         </div>
         <div className="clearfix"></div>
       </div>
