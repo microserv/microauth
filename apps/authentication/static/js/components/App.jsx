@@ -7,9 +7,13 @@ var App = React.createClass({
   render: function () {
     return (
       <div>
-        <Login />
-        <hr />
-        <Register />
+        <div className="split-page left">
+          <Login />
+        </div>
+        <div className="split-page right">
+          <Register />
+        </div>
+        <div className="clearfix"></div>
       </div>
     )
   }

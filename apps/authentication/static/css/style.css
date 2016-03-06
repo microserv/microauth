@@ -236,3 +236,26 @@ footer img {
 footer img:hover { opacity: .83; }
 
 footer img:focus , footer a:focus { outline: none; }
+
+.split-page {
+	width: 50%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
