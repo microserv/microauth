@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var React = require('react');
 
 var Login = require('./Login.jsx');
@@ -7,7 +8,19 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       hideLogin: false,
-      hideRegistration: true
+      hideRegistration: true,
+      hideAuth: true,
+      auth: {
+        expires_in: '',
+        refresh_token: '',
+        scope: '',
+        access_token: '',
+        token_type: ''
+      },
+      oauth2: {
+        id: '',
+        secret: ''
+      }
     };
   },
 
@@ -18,7 +31,19 @@ var App = React.createClass({
     });
   },
 
-  prepareAjax: function prepareAjax() {
+  toggleShowAuth: function() {
+    this.setState({ hideAuth: !this.state.hideAuth });
+  },
+
+  updateAuthentication: function(authentication) {
+    this.setState({ auth: authentication });
+    this.setState({ hideAuth: false });
+  },
+
+  prepareAjax: function prepareAjax(_username, _password) {
+    var username = _username ? _username : '';
+    var password = _password ? _password : '';
+
     function getCookie(name) {
       // https://docs.djangoproject.com/en/stable/ref/csrf/#ajax
 
@@ -43,10 +68,16 @@ var App = React.createClass({
         // these HTTP methods do not require CSRF protection
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
+
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+
+            if (username && password) {
+              var header = 'Basic ' + btoa(username + ':' + password);
+              xhr.setRequestHeader('Authorization', header);
             }
         }
     });
@@ -60,12 +91,23 @@ var App = React.createClass({
           <h3>Authentication service for microserv</h3>
         </hgroup>
         <div className="" hidden={this.state.hideLogin}>
-          <Login prepareAjax={this.prepareAjax} />
+          <Login prepareAjax={this.prepareAjax}
+            clientId={this.state.oauth2.id}
+            clientSecret={this.state.oauth2.secret}
+            updateAuthentication={this.updateAuthentication} />
         </div>
         <div className="" hidden={this.state.hideRegistration}>
           <Register prepareAjax={this.prepareAjax} />
         </div>
         <div className="clearfix"></div>
+        <h3 onClick={this.toggleShowAuth}>
+          OAuth2 information
+        </h3>
+        <div>
+          <pre hidden={this.state.hideAuth}>
+            {JSON.stringify(this.state.auth, null, 2)}
+          </pre>
+        </div>
         <hgroup>
           <h3 onClick={this.switchView} hidden={this.state.hideLogin}>
             Need an account? Click here to sign up.

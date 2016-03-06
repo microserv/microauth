@@ -51,8 +51,8 @@ var LoginForm = React.createClass({
           <span className="bar" />
           <label>Password</label>
         </div>
-        <button type="button" className="button buttonBlue" onClick={this.handleClickSubmit} >
-          Log in
+        <button type="button" className="button buttonBlue" onClick={this.props.handleClickSubmit} >
+          Generate OAuth2 credentials
           <div className="ripples buttonRipples"><span className="ripplesCircle" /></div>
         </button>
       </form>
