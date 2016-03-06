@@ -68,8 +68,8 @@ var LoginForm = React.createClass({
           <label>Password</label>
         </div>
         <button type="button" className="button buttonBlue" onClick={this.handleClickSubmit} >
-          Log in
-          <div className="ripples buttonRipples"><span className="ripplesCircle"></span></div>
+          Sign up
+          <div className="ripples buttonRipples"><span className="ripplesCircle" /></div>
         </button>
       </form>
     )

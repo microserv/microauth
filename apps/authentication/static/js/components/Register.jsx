@@ -6,7 +6,6 @@ var RegisterForm = require('./RegisterForm.jsx');
 var Register = React.createClass({
   getInitialState: function() {
     return {
-      username: '',
       email: '',
       password: '',
       passwordRepeat:''
@@ -48,10 +47,7 @@ var Register = React.createClass({
   },
 
   handleEmailChange: function(event) {
-    this.setState({
-      email: event.target.value,
-      username: event.target.value
-    });
+    this.setState({ email: event.target.value });
   },
 
   handlePasswordChange: function(event) {
@@ -95,7 +91,7 @@ var Register = React.createClass({
           Welcome.
         </p>
         <RegisterForm
-          username={this.state.username}
+          username={this.state.email}
           email={this.state.email}
           handleEmailChange={this.handleEmailChange}
           password={this.state.password}
