@@ -73,7 +73,7 @@ var Login = React.createClass({
           password={this.state.password}
           handlePasswordChange={this.handlePasswordChange}
           handleClickSubmit={this.handleSubmit} />
-        <div hidden={!this.state.response}>
+        <div hidden={!this.state.response || !this.props.debug}>
           <h3>Response</h3>
           <pre>
             {JSON.stringify(this.state.response, null, 2)}

@@ -69,7 +69,7 @@ var Register = React.createClass({
           passwordRepeat={this.state.passwordRepeat}
           handlePasswordRepeatChange={this.handlePasswordRepeatChange}
           handleSubmit={this.handleSubmit} />
-        <div hidden={!this.state.response}>
+        <div hidden={!this.state.response || !this.props.debug}>
           <h3>Response</h3>
           <pre>
             {JSON.stringify(this.state.response, null, 2)}
