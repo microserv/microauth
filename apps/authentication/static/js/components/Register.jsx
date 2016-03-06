@@ -86,16 +86,21 @@ var Register = React.createClass({
 
   render: function () {
     return (
-      <RegisterForm
-        username={this.state.email}
-        email={this.state.email}
-        handleEmailChange={this.handleEmailChange}
-        password={this.state.password}
-        handlePasswordChange={this.handlePasswordChange}
-        passwordRepeat={this.state.passwordRepeat}
-        handlePasswordRepeatChange={this.handlePasswordRepeatChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <hgroup>
+            <h1>Register</h1>
+          </hgroup>
+        <RegisterForm
+          username={this.state.email}
+          email={this.state.email}
+          handleEmailChange={this.handleEmailChange}
+          password={this.state.password}
+          handlePasswordChange={this.handlePasswordChange}
+          passwordRepeat={this.state.passwordRepeat}
+          handlePasswordRepeatChange={this.handlePasswordRepeatChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
     )
   }
 })

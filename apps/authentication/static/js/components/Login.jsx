@@ -5,7 +5,12 @@ var LoginForm = require('./LoginForm.jsx');
 var Login = React.createClass({
   render: function () {
     return (
-      <LoginForm />
+      <div>
+        <hgroup>
+          <h1>Sign in</h1>
+        </hgroup>
+        <LoginForm />
+      </div>
     )
   }
 })

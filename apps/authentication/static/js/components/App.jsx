@@ -7,17 +7,15 @@ var App = React.createClass({
   render: function () {
     return (
       <div>
+        <hgroup>
+          <h1>MicroAuth</h1>
+          <h3>Authentication service for microserv</h3>
+        </hgroup>
         <div className="split-page left">
-          <hgroup>
-            <h1>Sign in</h1>
-            <Login />
-          </hgroup>
+          <Login />
         </div>
         <div className="split-page right">
-          <hgroup>
-            <h1>Register</h1>
-            <Register />
-          </hgroup>
+          <Register />
         </div>
         <div className="clearfix"></div>
       </div>
