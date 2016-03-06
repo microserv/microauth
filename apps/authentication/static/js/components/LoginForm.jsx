@@ -4,21 +4,6 @@ var React = require('react');
 var Input = require('./Input.jsx');
 
 var LoginForm = React.createClass({
-  getInitialState: function() {
-    return {
-      email: '',
-      password: ''
-    };
-  },
-
-  handleEmailChange: function(event) {
-    this.setState({ email: event.target.value });
-  },
-
-  handlePasswordChange: function(event) {
-    this.setState({ password: event.target.value });
-  },
-
   renderButtonRipple: function() {
     var $ripples = $('.ripples');
 
@@ -54,14 +39,14 @@ var LoginForm = React.createClass({
       <form>
         <div className="group">
           <Input type="text" name="email"
-                 value={this.state.email} onChange={this.handleEmailChange} />
+                 value={this.props.email} onChange={this.props.handleEmailChange} />
           <span className="highlight" />
           <span className="bar" />
           <label>Email</label>
         </div>
         <div className="group">
           <Input type="password" name="password"
-                 value={this.state.password} onChange={this.handlePasswordChange} />
+                 value={this.props.password} onChange={this.props.handlePasswordChange} />
           <span className="highlight" />
           <span className="bar" />
           <label>Password</label>
