@@ -225,7 +225,8 @@ OAUTH2_PROVIDER = {
         'templates.read': 'Content:Templates Read',
         'templates.write': 'Content:Templates Write',
         'templates.delete': 'Content:Templates Delete'
-    }
+    },
+    'DEFAULT_SCOPES': ['read', 'write']
 }
 
 # Pipeline
