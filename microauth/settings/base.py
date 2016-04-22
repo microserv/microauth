@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'oauth2_provider.middleware.OAuth2TokenMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,6 +60,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'oauth2_provider.backends.OAuth2Backend',
+    # Uncomment following if you want to access the admin
+    'django.contrib.auth.backends.ModelBackend'
+)
 
 ROOT_URLCONF = 'microauth.urls'
 
@@ -194,6 +201,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'oauthlib': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     }
 }
 
@@ -201,6 +213,20 @@ LOGGING = {
 
 # corsheaders
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Django OAuth Toolkit
+OAUTH2_PROVIDER = {
+    'SCOPES': {
+        'read': 'Generic read scope',
+        'write': 'Generic write scope',
+        'publishing.read': 'Content:Publishing Read',
+        'publishing.write': 'Content:Publishing Write',
+        'publishing.delete': 'Content:Publishing Delete',
+        'templates.read': 'Content:Templates Read',
+        'templates.write': 'Content:Templates Write',
+        'templates.delete': 'Content:Templates Delete'
+    }
+}
 
 # Pipeline
 STATICFILES_FINDERS.append('pipeline.finders.PipelineFinder')
