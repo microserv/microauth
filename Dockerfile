@@ -1,4 +1,4 @@
-FROM backend-comm
+FROM localhost:5000/backend-comm
 MAINTAINER Pål Karlsrud <paal@128.no>
 
 ENV BASE_DIR /var/microauth
