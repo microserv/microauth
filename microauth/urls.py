@@ -14,11 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-
     # django-oauth-toolkit
     url(r'^oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^', include('apps.authentication.urls', namespace='microauth_authentication')),
