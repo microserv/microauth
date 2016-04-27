@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,3 +25,5 @@ urlpatterns = [
     url(r'^', include('apps.authentication.urls', namespace='microauth_authentication')),
     url(r'^api/', include('apps.api.urls', namespace='microauth_api')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
