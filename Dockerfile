@@ -27,6 +27,8 @@ RUN npm install .
 ENV PATH ${BASE_DIR}/node_modules/.bin:$PATH
 ENV PATH ${BASE_DIR}/apps/authentication/static/js/node_modules/.bin:$PATH
 
+ENV SERVICE_NAME microauth
+
 WORKDIR ${BASE_DIR}
 RUN python manage.py collectstatic --noinput
 
