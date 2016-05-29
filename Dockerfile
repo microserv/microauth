@@ -32,5 +32,5 @@ ENV SERVICE_NAME microauth
 WORKDIR ${BASE_DIR}
 RUN python manage.py collectstatic --noinput
 RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'myemail@example.com', 'aStupidDefaultPasswordYouShouldChange')" | python manage.py shell
-
+RUN echo "from oauth2_provider.models import Application; Application(1, '7ejsN0VfIW1QxYal0fnD74WWU5jOVSRtfI5MSmE9', 1, 'https://despina.128.no/connect/microauth/callback', 'public', 'authorization-code', 'UmaQLODH2DLwpebEn5s0eTmrf5xOcdH5ZgG0lYGrUk2AlcQQEP3uK8QZRyyxqKUxNAh7HNhna1FXCer2ltTzUxkOqSGt11Y7S69gPwlgqLPK4DgcBJHlQuj8ObIyYFsm', 'Publishing', False).save()" | python manage.py shell
 EXPOSE 80
