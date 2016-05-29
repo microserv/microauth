@@ -1,5 +1,7 @@
 # Microauth
 
+[![Build Status](https://travis-ci.org/microserv/microauth.svg?branch=master)](https://travis-ci.org/microserv/microauth) [![Coverage Status](https://coveralls.io/repos/github/microserv/microauth/badge.svg?branch=master)](https://coveralls.io/github/microserv/microauth?branch=master)
+
 Microauth is the authentication module for the microserv project. We use OAuth2 as authentication, with great help from [oauthlib](https://github.com/idan/oauthlib) and [django-oauth-toolkit](https://github.com/evonove/django-oauth-toolkit).
 
 ## Getting started
