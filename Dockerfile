@@ -31,5 +31,6 @@ ENV SERVICE_NAME microauth
 
 WORKDIR ${BASE_DIR}
 RUN python manage.py collectstatic --noinput
+RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'myemail@example.com', 'aStupidDefaultPasswordYouShouldChange')" | python manage.py shell
 
 EXPOSE 80
